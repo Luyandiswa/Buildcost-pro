@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildCost Pro - Construction Cost Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-hard-hat"></i>
+                    <h1>Build<span>Cost</span> Pro</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Professional Construction Cost Estimation</h2>
+            <p>Accurately calculate your construction project costs with our comprehensive calculator designed for contractors, builders, and homeowners.</p>
+            <a href="#calculator" class="btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Construction Cost Calculator</h2>
+                <p>Fill in your project details to get an accurate cost estimate</p>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <div class="card-title">
+                        <i class="fas fa-calculator"></i>
+                        <span>Project Details</span>
+                    </div>
+
+                    <div class="calculator">
+                        <form id="costForm">
+                            <div class="form-section">
+                                <div class="section-title-small">
+                                    <i class="fas fa-ruler-combined"></i>
+                                    <span>Project Dimensions</span>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="area">Total Area</label>
+                                            <div class="input-with-unit">
+                                                <input type="number" id="area" placeholder="Enter area" value="" required>
+                                                <span class="unit">m²</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="perimeter">Perimeter</label>
+                                            <div class="input-with-unit">
+                                                <input type="number" id="perimeter" placeholder="Enter perimeter" value="">
+                                                <span class="unit">m</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="project_type">Project Type</label>
+                                    <select id="project_type" required>
+                                        <option value="">Select project type</option>
+                                        <option value="residential" selected>Residential Building</option>
+                                        <option value="commercial">Commercial Building</option>
+                                        <option value="renovation">Renovation</option>
+                                        <option value="extension">Extension</option>
+                                        <option value="new_build">New Build</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <div class="section-title-small">
+                                    <i class="fas fa-cubes"></i>
+                                    <span>Materials</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="material_quality">Material Quality</label>
+                                    <select id="material_quality" required>
+                                        <option value="economy">Economy</option>
+                                        <option value="standard" selected>Standard</option>
+                                        <option value="premium">Premium</option>
+                                        <option value="luxury">Luxury</option>
+                                    </select>
+                                </div>
+
+                                <div class="toggle-header" id="materialsToggle">
+                                    <i class="fas fa-chevron-right"></i>
+                                    <span>Custom Material Selections</span>
+                                </div>
+
+                                <div class="toggle-section" id="materialsSection">
+                                    <div class="form-group">
+                                        <label for="foundation">Foundation Type</label>
+                                        <select id="foundation">
+                                            <option value="standard" selected>Standard Concrete</option>
+                                            <option value="reinforced">Reinforced Concrete</option>
+                                            <option value="pile">Pile Foundation</option>
+                                            <option value="raft">Raft Foundation</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="wall_material">Wall Material</label>
+                                        <select id="wall_material">
+                                            <option value="brick" selected>Brick</option>
+                                            <option value="concrete_block">Concrete Block</option>
+                                            <option value="timber_frame">Timber Frame</option>
+                                            <option value="steel_frame">Steel Frame</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="roof_material">Roof Material</label>
+                                        <select id="roof_material">
+                                            <option value="concrete_tile" selected>Concrete Tile</option>
+                                            <option value="clay_tile">Clay Tile</option>
+                                            <option value="metal">Metal Sheeting</option>
+                                            <option value="slate">Slate</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <div class="section-title-small">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Labor & Services</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="labor_rate">Labor Rate</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="labor_rate" value="" step="0.5" required>
+                                        <span class="unit">ZAR/hour</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="project_duration">Estimated Project Duration</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="project_duration" placeholder="Enter duration" value="" required>
+                                        <span class="unit">weeks</span>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-header" id="servicesToggle">
+                                    <i class="fas fa-chevron-right"></i>
+                                    <span>Additional Services</span>
+                                </div>
+
+                                <div class="toggle-section" id="servicesSection">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="architect" value="1">
+                                        <label for="architect">Architect Services</label>
+                                    </div>
+
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="engineer" value="1">
+                                        <label for="engineer">Structural Engineer</label>
+                                    </div>
+
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="plumbing" value="1" checked>
+                                        <label for="plumbing">Plumbing Installation</label>
+                                    </div>
+
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="electrical" value="1" checked>
+                                        <label for="electrical">Electrical Installation</label>
+                                    </div>
+
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="plastering" value="1" checked>
+                                        <label for="plastering">Plastering & Finishing</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <div class="section-title-small">
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                    <span>Additional Costs</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="waste_removal">Waste Removal</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="waste_removal" value="">
+                                        <span class="unit">ZAR</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="permits">Permits & Fees</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="permits" value="">
+                                        <span class="unit">ZAR</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contingency">Contingency (%)</label>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="contingency" value="" min="0" max="30" step="1">
+                                        <span class="unit">%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-calculate">
+                                <i class="fas fa-calculator"></i> Calculate Total Cost
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2>Cost Estimate</h2>
+                        <p>Detailed breakdown of your construction costs</p>
+                    </div>
+
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <span class="cost-label">Materials Cost</span>
+                            <span class="cost-amount" id="materialsCost">ZAR 0.00</span>
+                        </div>
+
+                        <div class="cost-item">
+                            <span class="cost-label">Labor Cost</span>
+                            <span class="cost-amount" id="laborCost">ZAR 0.00</span>
+                        </div>
+
+                        <div class="cost-item">
+                            <span class="cost-label">Services Cost</span>
+                            <span class="cost-amount" id="servicesCost">ZAR 0.00</span>
+                        </div>
+
+                        <div class="cost-item">
+                            <span class="cost-label">Additional Costs</span>
+                            <span class="cost-amount" id="additionalCost">ZAR 0.00</span>
+                        </div>
+
+                        <div class="cost-item">
+                            <span class="cost-label">Contingency</span>
+                            <span class="cost-amount" id="contingencyCost">ZAR 0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="cost-total" id="totalCost">
+                        ZAR 0.00
+                    </div>
+
+                    <div class="summary">
+                        <h3><i class="fas fa-clipboard-list"></i> Project Summary</h3>
+                        <div class="summary-item">
+                            <span>Project Type:</span>
+                            <span id="summaryType">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total Area:</span>
+                            <span id="summaryArea">- m²</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Material Quality:</span>
+                            <span id="summaryQuality">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Estimated Duration:</span>
+                            <span id="summaryDuration">- weeks</span>
+                        </div>
+                    </div>
+
+                    <button class="btn save-estimate" id="saveEstimate">
+                        <i class="fas fa-save"></i> Save Estimate
+                    </button>
+
+                    <button class="btn print-estimate" id="printEstimate">
+                        <i class="fas fa-print"></i> Print Estimate
+                    </button>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> This calculator provides estimates only. Actual costs may vary based on location, market conditions, project complexity, and other factors. Always consult with professional contractors for accurate quotes.</p>
+            </div>
+
+            <div class="developer-credit">
+                <h3>Developed by Luyandiswa Mabaso</h3>
+                <p>Construction Cost Calculator - Professional Estimation Tool</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Use Our Calculator</h2>
+                <p>Professional tools designed for construction industry needs</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Accurate Estimates</h3>
+                    <p>Get precise cost calculations based on current market rates and material costs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Detailed Breakdown</h3>
+                    <p>See exactly where your money is going with our comprehensive cost breakdown.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <h3>Save & Export</h3>
+                    <p>Save your estimates for future reference or export them for client presentations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BuildCost Pro</h3>
+                    <p>Professional construction cost estimation tools for contractors, builders, and homeowners.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Construction Guides</a></li>
+                        <li><a href="#">Material Costs</a></li>
+                        <li><a href="#">Labor Rates</a></li>
+                        <li><a href="#">Regulations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Developer</h3>
+                    <ul>
+                        <li><i class="fas fa-user"></i> Luyandiswa Mabaso</li>
+                        <li><i class="fas fa-envelope"></i> luyandiswambuyisen07@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> 0780255396</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 BuildCost Pro. All rights reserved. | Developed by Luyandiswa Mabaso</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
